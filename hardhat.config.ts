@@ -34,7 +34,7 @@ function batchImportPrivateKet() {
 
 const config: HardhatUserConfig = {
   solidity: {
-    version: "0.8.4",
+    version: "0.8.10",
     settings: { optimizer: { enabled: true, runs: 200 } },
   },
   networks: {
@@ -43,8 +43,20 @@ const config: HardhatUserConfig = {
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },
+    georli: {
+      url: "https://goerli.infura.io/v3/96798f2d16f74f688775a33e2eb2769d",
+      accounts: batchImportPrivateKet(),
+    },
     "rei-testnet": {
       url: "https://rpc-testnet.rei.network",
+      accounts: batchImportPrivateKet(),
+    },
+    "rei-devnet": {
+      url: "https://rpc-devnet.rei.network",
+      accounts: batchImportPrivateKet(),
+    },
+    "zk-test": {
+      url: "https://zksync2-testnet.zksync.dev",
       accounts: batchImportPrivateKet(),
     },
   },

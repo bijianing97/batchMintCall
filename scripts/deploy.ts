@@ -8,7 +8,7 @@ import { ethers } from "hardhat";
 async function main() {
   const signers = await ethers.getSigners();
   console.log("signer:", signers[0].address);
-  const rndContract = await ethers.getContractFactory("rndtoken");
+  const rndContract = await ethers.getContractFactory("XENCrypto");
   const rnd = await rndContract.deploy();
   await rnd.deployed();
   console.log("rnd contract deployed successfully to:", rnd.address);
